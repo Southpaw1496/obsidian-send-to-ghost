@@ -2,6 +2,10 @@
 
 A simple plugin for Obsidian to publish to Ghost site with a single click.
 
+## How to use
+- Create a custom integration follow this [link](https://ghost.org/integrations/custom-integrations/). You would need an **Admin API Key** and **API URL**.
+- Once you install the plugin, you would find an option "Obsidian Ghost Publish" under "Plugin options" and copy-paste it in the textbox.
+- That's it! you now are able to publish by click on the ghost icon on the left hand or use the command pallete.
 ### How to use
 
 - Clone this repo.
