@@ -11,3 +11,9 @@ A simple plugin for Obsidian to publish to Ghost site with a single click.
 ### Manually installing the plugin
 
 - Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+
+
+### Issues & Requests
+
+- For feature requests, please take use of Discussions.
+- For any issues with current versions, please use Issues.
