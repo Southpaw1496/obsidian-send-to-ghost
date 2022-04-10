@@ -1,3 +1,4 @@
+import { SettingsProp, ViewProp, ContentProp } from './../types/index';
 import { Notice, request } from "obsidian";
 
 import { sign } from 'jsonwebtoken';
@@ -5,7 +6,7 @@ const MarkdownIt = require("markdown-it")
 
 const md = new MarkdownIt()
 
-export const publishPost = async (view: any, settings: any) => {
+export const publishPost = async (view: ViewProp, settings: SettingsProp) => {
 
     const content = {
         title: view.file.basename,
@@ -32,7 +33,7 @@ export const publishPost = async (view: any, settings: any) => {
     });
 
 
-    const contentPost = (content: any, settings: any) => ({
+    const contentPost = (content: ContentProp, settings: SettingsProp) => ({
         "posts": [{
             "title": content.title,
             "html": md.render(content.data),
@@ -56,7 +57,6 @@ export const publishPost = async (view: any, settings: any) => {
         body: JSON.stringify(body)
     })
 
-
     const json = JSON.parse(result)
 
     if (json?.errors) {
@@ -64,8 +64,8 @@ export const publishPost = async (view: any, settings: any) => {
     }
 
     if (json?.posts) {
-        new Notice(`${json.posts[0].settings.title} has been ${json.posts[0].settings.status} successful!`)
+        new Notice(`"${json?.posts?.[0]?.title}" has been ${json?.posts?.[0]?.status} successful!`)
     }
 
-    return result
+    return json
 }

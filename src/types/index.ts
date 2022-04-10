@@ -10,3 +10,15 @@ export const DEFAULT_SETTINGS: SettingsProp = {
     publishStatus: 'draft'
 }
 
+
+export interface ViewProp {
+    file: {
+        basename: string
+    },
+    data: string
+}
+
+export interface ContentProp {
+    title: string,
+    data: string
+}
