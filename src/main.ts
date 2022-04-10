@@ -14,8 +14,6 @@ export default class MyPlugin extends Plugin {
 
 		// 2 ways to publish post:
 
-		console.log('this.settings', this.settings)
-
 		// 1. Click on the ghost icon on the left
 		this.addRibbonIcon('ghost', 'Publish Ghost', () => {
 			const view = this.app.workspace.getActiveViewOfType(MarkdownView);

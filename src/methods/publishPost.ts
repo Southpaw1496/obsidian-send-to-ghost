@@ -15,9 +15,6 @@ export const publishPost = async (view: ViewProp, settings: SettingsProp) => {
 
     const version = 'v4'
 
-    console.log('content', content)
-    console.log('settings', settings)
-
     // Admin API key goes here
     const key = settings.adminToken;
 
@@ -31,7 +28,6 @@ export const publishPost = async (view: ViewProp, settings: SettingsProp) => {
         expiresIn: '5m',
         audience: `/${version}/admin/`
     });
-
 
     const contentPost = (content: ContentProp, settings: SettingsProp) => ({
         "posts": [{
