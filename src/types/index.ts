@@ -1,24 +1,25 @@
 export interface SettingsProp {
-    url: string,
-    adminToken: string,
-    publishStatus: string
+	url: string;
+	adminToken: string;
 }
 
 export const DEFAULT_SETTINGS: SettingsProp = {
-    url: '',
-    adminToken: '',
-    publishStatus: 'draft'
-}
-
+	url: "",
+	adminToken: "",
+};
 
 export interface ViewProp {
-    file: {
-        basename: string
-    },
-    data: string
+	file: {
+		basename: string;
+	};
+	data: string;
 }
 
 export interface ContentProp {
-    title: string,
-    data: string
+	title: string;
+	tags: string[];
+	featured: boolean;
+	status: "published" | "draft";
+	excerpt: string;
+	feature_image: string;
 }
