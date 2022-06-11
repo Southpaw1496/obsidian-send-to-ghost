@@ -2,7 +2,7 @@
 	"name": "obsidian-ghost-publish",
 	"version": "1.2.0",
 	"description": "Obsidian plugin for easy publish to ghost with a single click.",
-	"main": "src/main.js",
+	"main": "src/main.ts",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
