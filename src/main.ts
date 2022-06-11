@@ -1,4 +1,4 @@
-import { MarkdownView, Plugin } from "obsidian";
+import { MarkdownView, Notice, Plugin } from "obsidian";
 
 import { DEFAULT_SETTINGS, SettingsProp } from "./types/index";
 import { SettingTab } from "./settingTab";
@@ -10,12 +10,17 @@ export default class MyPlugin extends Plugin {
 		// load the settings first
 		await this.loadSettings();
 
-		// 2 ways to publish post:
-
+		// 2 ways to publish:
 		// 1. Click on the ghost icon on the left
 		this.addRibbonIcon("ghost", "Publish Ghost", () => {
 			const view = this.app.workspace.getActiveViewOfType(MarkdownView);
-			// matter
+			if (!view) {
+				new Notice(
+					"Open the markdown file first before publish your post"
+				);
+				return;
+			}
+
 			publishPost(view, this.settings);
 		});
 
@@ -24,17 +29,19 @@ export default class MyPlugin extends Plugin {
 			id: "publish",
 			name: "Publish current document",
 			editorCallback: (_, view: MarkdownView) => {
+				if (!view) {
+					new Notice(
+						"Open the markdown file first before publish your post"
+					);
+					return;
+				}
+
 				publishPost(view, this.settings);
 			},
 		});
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new SettingTab(this.app, this));
-
-		// When registering intervals, this function will automatically clear the interval when the plugin is disabled.
-		this.registerInterval(
-			window.setInterval(() => console.log("setInterval"), 5 * 60 * 1000)
-		);
 	}
 
 	onunload() {}

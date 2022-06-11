@@ -8,18 +8,15 @@ export const DEFAULT_SETTINGS: SettingsProp = {
 	adminToken: "",
 };
 
-export interface ViewProp {
-	file: {
-		basename: string;
-	};
-	data: string;
-}
-
 export interface ContentProp {
 	title: string;
-	tags: string[];
-	featured: boolean;
-	status: "published" | "draft";
-	excerpt: string;
-	feature_image: string;
+	tags?: string[];
+	featured?: boolean;
+	status: string;
+	excerpt?: string | undefined;
+	feature_image?: string;
+}
+
+export interface DataProp {
+	content: string;
 }

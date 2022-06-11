@@ -1,20 +1,29 @@
-import { SettingsProp, ViewProp, ContentProp } from "./../types/index";
-import { Notice, request } from "obsidian";
-
+/* eslint-disable @typescript-eslint/no-var-requires */
+import { SettingsProp, ContentProp, DataProp } from "./../types/index";
+import { MarkdownView, Notice, request } from "obsidian";
 import { sign } from "jsonwebtoken";
 
 const matter = require("gray-matter");
 const MarkdownIt = require("markdown-it");
 
 const md = new MarkdownIt();
+const version = "v4";
 
-export const publishPost = async (view: ViewProp, settings: SettingsProp) => {
-	const version = "v4";
+const contentPost = (frontmatter: ContentProp, data: DataProp) => ({
+	posts: [
+		{
+			...frontmatter,
+			html: md.render(data.content),
+		},
+	],
+});
 
-	// Admin API key goes here
+export const publishPost = async (
+	view: MarkdownView,
+	settings: SettingsProp
+) => {
+	// Ghost Url and Admin API key
 	const key = settings.adminToken;
-
-	// Split the key into ID and SECRET
 	const [id, secret] = key.split(":");
 
 	// Create the token (including decoding secret)
@@ -26,39 +35,29 @@ export const publishPost = async (view: ViewProp, settings: SettingsProp) => {
 	});
 
 	// get frontmatter
-	const m = matter(`${view.data}`);
+	const noteFile = app.workspace.getActiveFile();
+	const metaMatter = app.metadataCache.getFileCache(noteFile).frontmatter;
+	const data = matter(view.getViewData());
 
 	const frontmatter = {
-		title: m.data.title || view.file.basename,
-		tags: m.data.tags || undefined,
-		featured: m.data.featured || false,
-		status: m.data.status || "draft",
-		excerpt: m.data.excerpt || undefined,
-		feature_image: m.data.feature_image || undefined,
+		title: metaMatter.title || view.file.basename,
+		tags: metaMatter.tags || [],
+		featured: metaMatter.featured || false,
+		status: metaMatter.published ? "published" : "draft",
+		excerpt: metaMatter.excerpt || undefined,
+		feature_image: metaMatter.feature_image || undefined,
 	};
-
-	const contentPost = (frontmatter: ContentProp) => ({
-		posts: [
-			{
-				...frontmatter,
-				html: md.render(m.content),
-			},
-		],
-	});
-
-	const body = contentPost(frontmatter);
 
 	const result = await request({
 		url: `${settings.url}/ghost/api/${version}/admin/posts/?source=html`,
 		method: "POST",
 		contentType: "application/json",
 		headers: {
-			"Access-Control-Allow-Origin": "app://obsidian.md",
 			"Access-Control-Allow-Methods": "POST",
 			"Content-Type": "application/json;charset=utf-8",
 			Authorization: `Ghost ${token}`,
 		},
-		body: JSON.stringify(body),
+		body: JSON.stringify(contentPost(frontmatter, data)),
 	});
 
 	const json = JSON.parse(result);
