@@ -3,7 +3,7 @@ import { MarkdownView, Notice, Plugin } from "obsidian";
 import { DEFAULT_SETTINGS, SettingsProp } from "./types/index";
 import { SettingTab } from "./settingTab";
 import { publishPost } from "./methods/publishPost";
-export default class MyPlugin extends Plugin {
+export default class GhostPublish extends Plugin {
 	settings: SettingsProp;
 
 	async onload() {
