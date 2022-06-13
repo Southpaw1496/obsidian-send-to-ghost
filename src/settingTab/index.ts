@@ -41,10 +41,12 @@ export class SettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName("API URL")
-			.setDesc("Your domain name e.g: https://domain.com")
+			.setDesc(
+				"Your full URL e.g: https://obsidian.md. Note, domain.com won't work."
+			)
 			.addText((text) =>
 				text
-					.setPlaceholder("nguyens.co")
+					.setPlaceholder("https://obsidian.md")
 					.setValue(this.plugin.settings.url)
 					.onChange(async (value) => {
 						console.log("Blog URL: " + value);

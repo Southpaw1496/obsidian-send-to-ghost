@@ -40,12 +40,12 @@ export const publishPost = async (
 	const data = matter(view.getViewData());
 
 	const frontmatter = {
-		title: metaMatter.title || view.file.basename,
-		tags: metaMatter.tags || [],
-		featured: metaMatter.featured || false,
-		status: metaMatter.published ? "published" : "draft",
-		excerpt: metaMatter.excerpt || undefined,
-		feature_image: metaMatter.feature_image || undefined,
+		title: metaMatter?.title || view.file.basename,
+		tags: metaMatter?.tags || [],
+		featured: metaMatter?.featured || false,
+		status: metaMatter?.published ? "published" : "draft",
+		excerpt: metaMatter?.excerpt || undefined,
+		feature_image: metaMatter?.feature_image || undefined,
 	};
 
 	const result = await request({
