@@ -1,12 +1,33 @@
-# Obsidian & Ghost
+# Obsidian Ghost Publish
 
-A simple plugin for Obsidian to publish to Ghost site with a single click.
+Plugin for publish to [Ghost](https://ghost.org/) site for [Obsidian](https://obsidian.md/) with a single click.
 
 ## How to use
 
 - Create a custom integration follow this [link](https://ghost.org/integrations/custom-integrations/). You would need an **Admin API Key** and **API URL**.
-- Once you install the plugin, you would find an option "Obsidian Ghost Publish" under "Plugin options" and copy-paste it in the textbox.
-- That's it! you now are able to publish by click on the ghost icon on the left hand or use the command pallete.
+- Once you install the plugin, enable the plugin and add the API KEy and API URL to the setting.
+- That's it! you now are able to publish the current document by click on the ghost icon on the sidebar or use the command pallete (CMD+P).
+
+## Frontmatter format
+
+Obsidian Ghost Publish use frontmatter to specify on how you want to publish your post.
+
+At the moment, the format is limited to:
+
+```md
+title: string (default: file name)
+tags: (default: [])
+- tag1
+- tag2
+featured: boolean (default: false)
+published: boolean (default: false)
+excerpt: string (default: undefined)
+feature_image: string (default: undefined)
+```
+
+Note:
+
+- `published` will allows you to specify if you want to publish a post now or draft a post.
 
 ### How to run on dev
 
@@ -16,7 +37,8 @@ A simple plugin for Obsidian to publish to Ghost site with a single click.
 
 ### Manually installing the plugin
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+- Run `npm run build`
+- Copy over `main.js` and `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
 
 ### Issues & Requests
 
