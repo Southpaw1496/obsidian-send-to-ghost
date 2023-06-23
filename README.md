@@ -1,46 +1,46 @@
-# Obsidian Ghost Publish
+# Send to Ghost
 
-Plugin for publish to [Ghost](https://ghost.org/) site for [Obsidian](https://obsidian.md/) with a single click.
+A maintained fork of Jay Nguyen's [obsidian-ghost-publish](https://github.com/jaynguyens/obsidian-ghost-publish). It allows you to send Obsidian notes to the [Ghost](https://ghost.org) blogging platform, either as published or draft posts.
 
-## How to use
+## Usage
 
-- Create a custom integration follow this [link](https://ghost.org/integrations/custom-integrations/). You would need an **Admin API Key** and **API URL**.
-- Once you install the plugin, enable the plugin and add the API KEy and API URL to the setting.
-- That's it! you now are able to publish the current document by click on the ghost icon on the sidebar or use the command pallete (CMD+P).
+-   In Ghost, create a new Custom Integration following [this guide](https://ghost.org/integrations/custom-integrations/). You will need the **Admin API Key** and the **API URL** later.
+-   Install and enable the plugin
+-   In the plugin settings, fill in the API URL and Admin API Key from the Custom Integration you created earlier.
+-   You can now publish documents by clicking the little ghost in the sidebar, or by using the command pallete.
 
-## Frontmatter format
+## Front Matter format
 
-Obsidian Ghost Publish use frontmatter to specify on how you want to publish your post.
+Send to Ghost uses front matter to set Ghost-specific settings such as the title, tags, and the featured image. You can add front matter by enclosing it in `---` at the beginning of a note.
 
-At the moment, the format is limited to:
+The following options are supported:
 
 ```md
-title: string (default: file name)
-tags: (default: [])
+---
+title: String (default: filename)
+tags: (default: none)
 - tag1
 - tag2
-featured: boolean (default: false)
-published: boolean (default: false)
-excerpt: string (default: undefined)
-feature_image: string (default: undefined)
+featured: Boolean (default: false)
+published: Boolean (default: false)
+excerpt: String (default: blank)
+feature_image: String (default: blank)
+---
 ```
 
-Note:
+### Development
 
-- `published` will allows you to specify if you want to publish a post now or draft a post.
+This plugin uses PNPM for dependency management.
 
-### How to run on dev
+-   Clone the repository.
+-   Run `pnpm i` to install the necessary dependencies
+-   Run `pnpm dev` to automaticlly recompile as the project files change.
 
-- Clone this repo.
-- `npm i` or `yarn` to install dependencies
-- `npm run dev` to start compilation in watch mode.
+### Manual installation
 
-### Manually installing the plugin
+-   Run `pnpm build`
+-   Copy `main.js` and `manifest.json` to `VaultFolder/.obsidian/plugins/send-to-ghost/` where `Vaultfolder` is the location of your Obsidian vault.
 
-- Run `npm run build`
-- Copy over `main.js` and `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+### Issues & Support
 
-### Issues & Requests
-
-- For feature requests, please take use of Discussions.
-- For any issues with current versions, please use Issues.
+If you find a bug in the plugin, please submit an [issue](https://github.com/Southpaw1496/obsidian-send-to-ghost). Otherwise, please contact me via [my website](https://southpaw1496.me).
