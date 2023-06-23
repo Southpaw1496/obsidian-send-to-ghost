@@ -4,30 +4,31 @@
 	"description": "Obsidian plugin for easy publish to ghost with a single click.",
 	"main": "src/main.ts",
 	"scripts": {
+		"preinstall": "npx only-allow pnpm",
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
 	"keywords": [],
 	"author": {
-		"name": "Jay Nguyen",
-		"email": "jay@nguyens.co",
+		"name": "Southpaw1496",
+		"email": "paw@southpaw1496.me",
 		"url": "https://github.com/jaynguyens/obsidian-ghost-publish"
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"@types/jsonwebtoken": "^8.5.8",
+		"@types/jsonwebtoken": "^9.0.2",
 		"@types/markdown-it": "^12.2.3",
-		"@types/node": "^17.0.42",
-		"@typescript-eslint/eslint-plugin": "^5.27.1",
-		"@typescript-eslint/parser": "^5.27.1",
+		"@types/node": "^17.0.45",
+		"@typescript-eslint/eslint-plugin": "^5.60.0",
+		"@typescript-eslint/parser": "^5.60.0",
 		"builtin-modules": "^3.3.0",
 		"esbuild": "0.14.43",
+		"gray-matter": "^4.0.3",
 		"jsonwebtoken": "^8.5.1",
 		"markdown-it": "^13.0.1",
-		"obsidian": "^0.14.8",
+		"obsidian": "^1.2.8",
 		"tslib": "2.4.0",
-		"typescript": "4.7.3",
-		"gray-matter": "^4.0.3"
+		"typescript": "4.7.3"
 	}
 }
