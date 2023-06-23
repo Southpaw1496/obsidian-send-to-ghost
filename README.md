@@ -43,4 +43,4 @@ This plugin uses PNPM for dependency management.
 
 ### Issues & Support
 
-If you find a bug in the plugin, please submit an [issue](https://github.com/Southpaw1496/obsidian-send-to-ghost). Otherwise, please contact me via [my website](https://southpaw1496.me).
+If you find a bug, please submit an [issue](https://github.com/Southpaw1496/obsidian-send-to-ghost). Otherwise, please contact me via [my website](https://southpaw1496.me).
