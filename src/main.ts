@@ -16,7 +16,7 @@ export default class GhostPublish extends Plugin {
 			const view = this.app.workspace.getActiveViewOfType(MarkdownView);
 			if (!view) {
 				new Notice(
-					"Open the markdown file first before publish your post"
+					"You must open the note that you want to send to Ghost."
 				);
 				return;
 			}
@@ -27,11 +27,11 @@ export default class GhostPublish extends Plugin {
 		// 2. Run the by command + P
 		this.addCommand({
 			id: "publish",
-			name: "Publish current document",
+			name: "Send to Ghost",
 			editorCallback: (_, view: MarkdownView) => {
 				if (!view) {
 					new Notice(
-						"Open the markdown file first before publish your post"
+						"You must open the note that you want to send to Ghostt"
 					);
 					return;
 				}
