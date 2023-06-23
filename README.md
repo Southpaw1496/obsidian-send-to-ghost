@@ -4,10 +4,10 @@ A maintained fork of Jay Nguyen's [obsidian-ghost-publish](https://github.com/ja
 
 ## Usage
 
--   In Ghost, create a new Custom Integration following [this guide](https://ghost.org/integrations/custom-integrations/). You will need the **Admin API Key** and the **API URL** later.
--   Install and enable the plugin
--   In the plugin settings, fill in the API URL and Admin API Key from the Custom Integration you created earlier.
--   You can now publish documents by clicking the little ghost in the sidebar, or by using the command pallete.
+- In Ghost, create a new Custom Integration following [this guide](https://ghost.org/integrations/custom-integrations/). You will need the **Admin API Key** and the **API URL** later.
+- Install and enable the plugin
+- In the plugin settings, fill in the API URL and Admin API Key from the Custom Integration you created earlier.
+- You can now publish documents by clicking the little ghost in the sidebar, or by using the command pallete.
 
 ## Front Matter format
 
