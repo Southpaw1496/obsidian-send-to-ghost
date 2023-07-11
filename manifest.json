@@ -1,7 +1,7 @@
 {
 	"id": "send-to-ghost",
 	"name": "Send to Ghost",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.12.0",
 	"description": "Send and publish notes to your Ghost blog with a single click",
 	"author": "Southpaw1496",
