@@ -6,5 +6,5 @@
 	"description": "Send and publish notes to your Ghost blog with a single click",
 	"author": "Southpaw1496",
 	"authorUrl": "https://southpaw1496.me",
-	"isDesktopOnly": false
+	"isDesktopOnly": true
 }
