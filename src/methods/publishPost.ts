@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { SettingsProp, ContentProp, DataProp } from "./../types/index";
-import { MarkdownView, Notice, request } from "obsidian";
+import { MarkdownView, Notice, requestUrl } from "obsidian";
 import { sign } from "jsonwebtoken";
 
 const matter = require("gray-matter");
@@ -48,7 +48,7 @@ export const publishPost = async (
 		feature_image: metaMatter?.feature_image || undefined,
 	};
 
-	const result = await request({
+	const result = await requestUrl({
 		url: `${settings.url}/ghost/api/${version}/admin/posts/?source=html`,
 		method: "POST",
 		contentType: "application/json",
@@ -60,7 +60,7 @@ export const publishPost = async (
 		body: JSON.stringify(contentPost(frontmatter, data)),
 	});
 
-	const json = JSON.parse(result);
+	const json = result.json;
 
 	if (json?.posts) {
 		new Notice(
