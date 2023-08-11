@@ -13,8 +13,6 @@ export class SettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 
 		containerEl.empty();
-		containerEl.createEl("h2", { text: "Send to Ghost" });
-
 		const document = containerEl.createEl("p", {
 			text: `If you get stuck, please refer to `,
 		});
