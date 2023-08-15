@@ -35,7 +35,7 @@ export const publishPost = async (
 	});
 
 	// get frontmatter
-	const noteFile = app.workspace.getActiveFile();
+	const noteFile = view.app.workspace.getActiveFile();
 	const metaMatter = app.metadataCache.getFileCache(noteFile).frontmatter;
 	const data = matter(view.getViewData());
 
