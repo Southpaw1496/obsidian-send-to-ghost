@@ -31,7 +31,7 @@ export default class GhostPublish extends Plugin {
 			editorCallback: (_, view: MarkdownView) => {
 				if (!view) {
 					new Notice(
-						"You must open the note that you want to send to Ghostt"
+						"You must open the note that you want to send to Ghost"
 					);
 					return;
 				}
