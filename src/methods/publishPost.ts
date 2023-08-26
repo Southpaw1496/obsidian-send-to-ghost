@@ -24,6 +24,7 @@ export const publishPost = async (
 ) => {
 	// Ghost Url and Admin API key
 	const key = settings.adminToken;
+	if (key.includes(":")) {
 	const [id, secret] = key.split(":");
 
 	// Create the token (including decoding secret)
@@ -78,4 +79,7 @@ export const publishPost = async (
 	new Notice(`Couldn't connect to the Ghost API. Is the API URL and Admin API Key correct?
 
 ${error.name}: ${error.message}`)
+}}
+else {
+	new Notice("Error: Ghost API Key is invalid.")
 }};
