@@ -47,7 +47,7 @@ export const publishPost = async (
 		excerpt: metaMatter?.excerpt || undefined,
 		feature_image: metaMatter?.feature_image || undefined,
 	};
-
+	try{
 	const result = await requestUrl({
 		url: `${settings.url}/ghost/api/${version}/admin/posts/?source=html`,
 		method: "POST",
@@ -58,7 +58,7 @@ export const publishPost = async (
 			Authorization: `Ghost ${token}`,
 		},
 		body: JSON.stringify(contentPost(frontmatter, data)),
-	});
+	})
 
 	const json = result.json;
 
@@ -74,4 +74,8 @@ export const publishPost = async (
 	}
 
 	return json;
-};
+} catch (error: any) {
+	new Notice(`Couldn't connect to the Ghost API. Is the API URL and Admin API Key correct?
+
+${error.name}: ${error.message}`)
+}};
