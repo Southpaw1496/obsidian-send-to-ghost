@@ -34,7 +34,6 @@ export class SettingTab extends PluginSettingTab {
 					.setPlaceholder("https://ghost.org")
 					.setValue(this.plugin.settings.url)
 					.onChange(async (value) => {
-						console.log("API URL: " + value);
 						this.plugin.settings.url = value;
 						await this.plugin.saveSettings();
 					})
