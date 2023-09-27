@@ -1,4 +1,4 @@
-import { MarkdownView, Notice, Plugin } from "obsidian";
+import { MarkdownFileInfo, MarkdownView, Notice, Plugin } from "obsidian";
 
 import { DEFAULT_SETTINGS, SettingsProp } from "./types/index";
 import { SettingTab } from "./settingTab";
@@ -28,17 +28,18 @@ export default class GhostPublish extends Plugin {
 		this.addCommand({
 			id: "publish",
 			name: "Send to Ghost",
-			editorCallback: (_, view: MarkdownView) => {
-				if (!view) {
+			editorCallback: (_, view: MarkdownView | MarkdownFileInfo) => {
+				if (!(view instanceof MarkdownView)) {
 					new Notice(
-						"You must open the note that you want to send to Ghost"
+						"You must open the note that you want to send to Ghostt"
 					);
 					return;
 				}
-
 				publishPost(view, this.settings);
 			},
-		});
+
+			},
+	);
 
 		// This adds a settings tab so the user can configure various aspects of the plugin
 		this.addSettingTab(new SettingTab(this.app, this));
