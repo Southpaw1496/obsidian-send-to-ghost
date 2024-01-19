@@ -19,15 +19,15 @@ export class SettingTab extends PluginSettingTab {
 
 		document.createEl("a", {
 			attr: {
-				href: "https://github.com/Southpaw1496/obsidian-send-to-ghost/blob/master/README.md",
+				href: "https://github.com/Southpaw1496/obsidian-send-to-ghost#usage",
 			},
 			text: "the documentation",
 		});
 
 		new Setting(containerEl)
-			.setName("API URL")
+			.setName("Site URL")
 			.setDesc(
-				"Your Ghost integration's API URL. Make sure to include https:// at the beginning"
+				"The URL of your Ghost site. Make sure to include https:// at the beginning"
 			)
 			.addText((text) =>
 				text
@@ -40,8 +40,8 @@ export class SettingTab extends PluginSettingTab {
 			);
 
 		new Setting(containerEl)
-			.setName("Admin API Key")
-			.setDesc("Your Ghost integration's Admin API Key")
+			.setName("Access Token")
+			.setDesc("Your Staff Access Token or Admin API Key")
 			.addText((text) =>
 				text
 					.setPlaceholder("6251555c94ca6")
