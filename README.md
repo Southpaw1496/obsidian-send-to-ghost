@@ -13,7 +13,7 @@ Note that the Staff Access Tokens of users who have Administrator or Owner permi
 To get your Staff Access Token, go to the admin dashboard and click the avatar in the bottom-right corner, then click "Your Profile". Scroll down to find the token, hover over it and click the "copy" button to copy it to the clipboard.
 
 ### Using the plugin
-After installing the plugin in Obsidian, go to its settings and fill in the fields. Put the URL of your Ghost site in the "Site URL" field (or the `ghost.io` URL if you're using Ghost Pro), and your Staff Access Token/Admin API Key in the "Access Token" field. If you are using Ghost Pro, you  You can now click the ghost icon in the ribbon menu on the left or use the "Send to Ghost" command in the command pallete to send the currently open note to Ghost.
+After installing the plugin in Obsidian, go to its settings and fill in the fields. Put the URL of your Ghost site in the "Site URL" field (or the `ghost.io` URL if you're using Ghost Pro), and your Staff Access Token/Admin API Key in the "Access Token" field. You can now click the ghost icon in the ribbon menu on the left or use the "Send to Ghost" command in the command pallete to send the currently open note to Ghost.
 
 ### Front Matter format
 
